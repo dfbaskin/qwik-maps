@@ -1,6 +1,6 @@
 import { component$, useStyles$, useSignal } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { states } from "./states";
+import { states } from "../states";
 import leafletStyles from "../../../../node_modules/leaflet/dist/leaflet.css?inline";
 import { LeafletMap } from "~/components/leaflet-map";
 import type { LocationsProps } from "~/models/location";
