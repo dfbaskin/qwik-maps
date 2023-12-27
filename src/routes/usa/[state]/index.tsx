@@ -55,8 +55,6 @@ function toDecimalDegress(latText: string, lngText: string) {
   if (lngHemisphere.toUpperCase() === "W") {
     lng = -lng;
   }
-  console.log([latDegrees, latMinutes, latSeconds, latHemisphere, lat]);
-  console.log([lngDegrees, lngMinutes, lngSeconds, lngHemisphere, lng]);
   return [lat, lng] as [number, number];
 }
 
