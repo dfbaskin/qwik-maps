@@ -1,4 +1,15 @@
-# Qwik City App ⚡️
+# Example Qwik App using Leaflet
+
+Example app using Leaflet and Qwik to display the 50 United States capitols.
+
+```
+npm install
+npm start
+```
+
+Then navigate to http://localhost:5173/usa/
+
+## Qwik City App ⚡️
 
 - [Qwik Docs](https://qwik.builder.io/)
 - [Discord](https://qwik.builder.io/chat)
