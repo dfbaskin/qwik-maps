@@ -2,6 +2,8 @@ import { component$, useStyles$, useSignal } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { states } from "../states";
 import leafletStyles from "../../../../node_modules/leaflet/dist/leaflet.css?inline";
+import styles from "./map.css?inline";
+import { useNavigate } from "@builder.io/qwik-city";
 import { LeafletMap } from "~/components/leaflet-map";
 import type { LocationsProps } from "~/models/location";
 
@@ -21,7 +23,9 @@ export default component$(() => {
   }
   // prettier-ignore
   const [/* stateCode */, stateName, /* capitolName */, lat, lng] = value;
+  const nav = useNavigate();
   useStyles$(leafletStyles);
+  useStyles$(styles);
   const currentLocation = useSignal<LocationsProps>({
     name: stateName,
     point: toDecimalDegress(lat, lng),
@@ -35,7 +39,19 @@ export default component$(() => {
     zoom: 9,
     marker: true,
   });
-  return <LeafletMap location={currentLocation} />;
+  return (
+    <>
+      <LeafletMap location={currentLocation} />
+      <button
+        id="back-button"
+        type="button"
+        onClick$={() => nav("/usa", { type: "link" })}
+        title="Back to Capitols"
+      >
+        {"\u21d0"}
+      </button>
+    </>
+  );
 });
 
 function toDecimalDegress(latText: string, lngText: string) {
